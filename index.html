@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Animated Loading page</title>
+</head>
+
+<body>
+    <img src="./icons/copyright.png" id="copyright"/>
+    <div class="container">
+        <div class="innerContainer">
+            <div class="loadingContainer viewSize">
+                <div class="countUp">
+                    <span>Uploading... </span>
+                    <img src="./icons/okay.png" class="okayImage" />
+                </div>
+                
+                <div class="animatedView">
+                    <div class="wavyView"></div>
+
+                </div>
+
+            </div>
+            <div class="selectImageContainer viewSize">
+                <button type="button" class="selectUploadImageButton">
+                    <img src="./icons/upload.png" alt="background" />
+                    <h3>upload</h3>
+                </button>
+            </div>
+        </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js"></script>
+
+<script>
+    let uploadButton = document.querySelector('.selectUploadImageButton');
+    uploadButton.addEventListener('click', () => {
+
+        let tl = gsap.timeline()
+
+        tl.to(".innerContainer", {
+            duration: 1,
+            x: 270
+        })
+            .to('.loadingContainer', {
+                opacity: 1
+            })
+            .to('.wavyView', {
+                duration: 2,
+
+                y: -100
+            })
+            .to('.wavyView', {
+                duration: 2,
+                y: -200
+            })
+            .to('.countUp > span', {
+                duration: 1,
+                color: "#fff"
+            })
+            .to('.wavyView', {
+                duration: 1,
+
+                y: -250
+            })
+            .to('.wavyView', {
+                duration: 2,
+                y: -550
+            })
+            .to('.countUp > span', {
+                scale: 0.7,
+                opacity: 0
+            })
+            .to('.countUp > span', {
+                display: "none"
+            })
+            .to('.okayImage', {
+                display: "block",
+            })
+
+            .to('.okayImage', {
+                rotationY: 0
+            })
+            .to('#copyright', {
+                duration: 1,
+                y: 60,
+                opacity: 1
+            })
+
+
+    })
+
+
+</script>
+
+
+</html>

@@ -1,1 +1,1 @@
-# AnimtedLoadingPage.github.io
+# animatedLoadingPage.github.io
